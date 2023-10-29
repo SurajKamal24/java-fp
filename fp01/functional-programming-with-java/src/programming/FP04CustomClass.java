@@ -251,6 +251,16 @@ public class FP04CustomClass {
 		//{Cloud=[AWS, Azure, Docker, Kubernetes], 
 		//FullStack=[FullStack], Microservices=[API, Microservices], 
 		//Framework=[Spring, Spring Boot]}
+		
+		Predicate<Course> reviewScoreGreaterThan95Predicate2 
+					= createPredicateWithCutoffReviewScore(95);
+
+		Predicate<Course> reviewScoreGreaterThan90Predicate2 
+					= createPredicateWithCutoffReviewScore(95);
+	}
+
+	private static Predicate<Course> createPredicateWithCutoffReviewScore(int cutOffReviewScope) {
+		return course -> course.getReviewScore() > cutOffReviewScope;
 	}
 
 }
